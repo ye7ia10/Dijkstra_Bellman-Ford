@@ -2,6 +2,7 @@ package eg.edu.alexu.csd.filestructure.graphs.test.cs59_07;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import eg.edu.alexu.csd.filestructure.graphs.IGraph;
 
@@ -11,6 +12,8 @@ public class Graph implements IGraph{
 	private int nomV = 0;
 	private int nomE = 0;
 	private java.util.Scanner sc;
+	private HashSet<Integer> vertex = new HashSet<>();
+	
 	@Override
 	public void readGraph(File file) {
 		// TODO Auto-generated method stub
@@ -20,7 +23,9 @@ public class Graph implements IGraph{
 			nomE = sc.nextInt();
 			for (int i = 0; i < nomE; i++) {
 				int src = sc.nextInt();
+				vertex.add(src);
 				int dest = sc.nextInt();
+				vertex.add(dest);
 				int weight = sc.nextInt();
 				graph.add(new Edge(src, dest, weight));
 			}
@@ -39,7 +44,10 @@ public class Graph implements IGraph{
 	@Override
 	public ArrayList<Integer> getVertices() {
 		// TODO Auto-generated method stub
-		return null;
+		if (size() == 0)
+			return null;
+		ArrayList<Integer> res = new ArrayList<Integer>(vertex);
+		return res;
 	}
 
 	@Override
