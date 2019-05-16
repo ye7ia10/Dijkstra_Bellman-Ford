@@ -11,6 +11,15 @@ public class tester {
 		System.out.println(n);
 	    n = sc.nextInt();
 		System.out.println(n);
+		int x;
+		for (int i = 0; i < n; i++) {
+			x = sc.nextInt();
+			System.out.print(x + " ");
+			x = sc.nextInt();
+			System.out.print(x + " ");
+			x = sc.nextInt();
+			System.out.println(x);
+		}
 		sc.close();
 	}
 
