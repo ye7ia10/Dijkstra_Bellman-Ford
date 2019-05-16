@@ -2,24 +2,19 @@ package eg.edu.alexu.csd.filestructure.graphs.test.cs59_07;
 
 public class Edge {
 	
-	private int from;
+	
 	private int to;
 	private int weight;
 	
 	public Edge() {}
 	
-	public Edge(int from, int to, int weight) {
-		this.from = from;
+	public Edge( int to, int weight) {
+		
 		this.to = to;
 		this.weight = weight;
 	}
 	
-	public int getFrom() {
-		return from;
-	}
-	public void setFrom(int from) {
-		this.from = from;
-	}
+	
 	public int getTo() {
 		return to;
 	}
