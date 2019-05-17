@@ -6,12 +6,11 @@ import java.io.FileNotFoundException;
 public class tester {
 	public static void main(String[] args) throws FileNotFoundException {
 		File f = new File("test.txt");
-		java.util.Scanner sc = new java.util.Scanner(f);
-		int n = sc.nextInt();
-		System.out.println(n);
-	    n = sc.nextInt();
-		System.out.println(n);
-		sc.close();
+		int [] dis = new int [5];
+		Graph g = new Graph();
+		g.readGraph(f);
+		g.runDijkstra(0, dis);
+		System.out.println(dis[3]);
 	}
 
 }
