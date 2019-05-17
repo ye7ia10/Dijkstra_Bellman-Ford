@@ -1,4 +1,4 @@
-package eg.edu.alexu.csd.filestructure.graphs.test.cs59_07;
+package eg.edu.alexu.csd.filestructure.graphs.cs59_07;
 
 public class DirectedEdge {
 	private int to;
