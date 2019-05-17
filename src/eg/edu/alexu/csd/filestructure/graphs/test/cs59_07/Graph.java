@@ -31,7 +31,7 @@ public class Graph implements IGraph{
 			}
 			sc.close();
 		} catch (Exception e) {
-			
+			return;
 		}
 	}
 
@@ -53,7 +53,16 @@ public class Graph implements IGraph{
 	@Override
 	public ArrayList<Integer> getNeighbors(int v) {
 		// TODO Auto-generated method stub
-		return null;
+		HashSet<Integer> res = new HashSet<>();
+		for (int i = 0; i < graph.size(); i++) {
+			if (graph.get(i).getFrom() == v) {
+				res.add(graph.get(i).getTo());
+			}
+		}
+		if (res.size() == 0)
+			return null;
+		ArrayList<Integer> nei = new ArrayList<>(res);
+		return nei;
 	}
 
 	@Override
@@ -71,7 +80,35 @@ public class Graph implements IGraph{
 	@Override
 	public boolean runBellmanFord(int src, int[] distances) {
 		// TODO Auto-generated method stub
-		return false;
+		int max = Integer.MAX_VALUE / 2;
+		for (int i= 0; i < nomV; i++) {
+            distances[i] = max; 
+		}
+        distances[src] = 0;
+        
+        for (int i=1; i<nomV; i++) 
+        { 
+            for (int j=0; j<nomE; j++) 
+            { 
+                int u = graph.get(j).getFrom(); 
+                int v = graph.get(j).getTo(); 
+                int weight = graph.get(j).getWeight(); 
+                if (distances[u]!= max && distances[u]+weight<distances[v]) {
+                    distances[v]=distances[u]+weight; 
+                }
+            } 
+        } 
+        
+        for (int j=0; j<nomE; j++) 
+        { 
+        	   int u = graph.get(j).getFrom(); 
+               int v = graph.get(j).getTo(); 
+               int weight = graph.get(j).getWeight(); 
+               if (distances[u] != max && distances[u]+weight < distances[v]) {
+            	   return false;
+              }
+        }
+		return true;
 	}
 
 }

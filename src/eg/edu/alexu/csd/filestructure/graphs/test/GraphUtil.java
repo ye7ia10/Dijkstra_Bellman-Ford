@@ -16,14 +16,19 @@ public class GraphUtil {
 
 	public static boolean validateShortestPath(int[] distances, java.io.File solFile) {
 		int n = distances.length;
+		System.out.println(n + " n ***********");
 		int usedInf = Integer.MAX_VALUE / 2;
 		int minInf = 10000;
 		try {
 			java.util.Scanner sc = new java.util.Scanner(solFile);
 			for (int i = 0; i < n; i++) {
 				int dist = sc.nextInt();
+			
 				if ((dist == usedInf && distances[i] < minInf) || (dist != distances[i])) {
+					System.out.println("dist   " + dist);
+					System.out.println(distances[i]);
 					sc.close();
+					System.out.println(n + " falseeeeeee ***********");
 					return false;
 				}
 			}

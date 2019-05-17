@@ -135,6 +135,7 @@ public class UnitTest {
 		File inputFile = new File(testDir + testCaseFileName);
 		File solutionFile = new File(solutionDir + testCaseFileName);
 		int n = GraphUtil.readGraphSize(inputFile);
+		System.err.println("**************" + n);
 		int[] distances = new int[n];
 		solver.readGraph(inputFile);
 		solver.runBellmanFord(src, distances);

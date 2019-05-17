@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 public class tester {
 	public static void main(String[] args) throws FileNotFoundException {
 		File f = new File("test.txt");
-		java.util.Scanner sc = new java.util.Scanner(f);
+	  /*java.util.Scanner sc = new java.util.Scanner(f);
 		int n = sc.nextInt();
 		System.out.println(n);
 	    n = sc.nextInt();
@@ -20,7 +20,12 @@ public class tester {
 			x = sc.nextInt();
 			System.out.println(x);
 		}
-		sc.close();
+		sc.close();*/
+		//System.out.println(Integer.MAX_VALUE);
+		Graph graph = new Graph();
+		graph.readGraph(f);
+		int dist [] = new int [500];
+		System.out.println(graph.runBellmanFord(0, dist));
 	}
 
 }
